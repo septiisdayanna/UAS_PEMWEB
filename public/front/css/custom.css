@@ -1,0 +1,43 @@
+.featured-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: calc(0.24rem - 1px);
+}
+
+.single-img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: calc(0.24rem - 1px);
+}
+
+.post-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: calc(0.24rem - 1px);
+}
+
+.card-height {
+    height: 280px;
+    position: relative;
+}
+
+.unstyle-categories {
+    text-decoration: none;
+}
+
+/* {{-- styel for ads header --}} */
+.ads-header-container {
+    margin-bottom: 2rem;
+}
+.ads-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ads-header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
