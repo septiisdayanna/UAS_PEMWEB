@@ -7,11 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-Berikut adalah contoh file README untuk proyek Anda:
-
----
-
-# UAS_PEMWEB
+# Website News Portal
 
 ## Deskripsi Proyek
 
@@ -44,6 +40,7 @@ Proyek ini adalah sebuah aplikasi web yang dikembangkan sebagai bagian dari tuga
 
 ### Halaman Utama
 Halaman utama menampilkan daftar postingan terbaru yang berstatus `publish`. Pengguna dapat melakukan pencarian postingan berdasarkan keyword.
+![Add Data Page](https://github.com/septiisdayanna/CRUD-PHP-PDO/blob/main/Tampilan%20CRUD/Tampilan%20Add%20Data.png)
 
 ### Halaman Detail Post
 Setelah mengklik "Read More" pada salah satu postingan, pengguna akan diarahkan ke halaman detail post yang menampilkan gambar, judul, konten, kategori, penulis, tanggal, dan jumlah hits dari postingan tersebut.
