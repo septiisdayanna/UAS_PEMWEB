@@ -7,81 +7,115 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Website News Portal
+# UAS_PEMWEB
 
-## Deskripsi Proyek
+## Overview
 
-Proyek ini adalah sebuah aplikasi web yang dikembangkan sebagai bagian dari tugas akhir untuk mata kuliah Pemrograman Web. Aplikasi ini menyediakan platform blogging yang memungkinkan pengguna untuk membuat, mengedit, menghapus, dan melihat postingan blog. Selain itu, pengguna juga dapat mengelola kategori untuk mengelompokkan postingan.
+UAS_PEMWEB is a web application project designed as a final assignment for the Web Programming course. The application features a user-friendly interface for managing posts and categories, along with user authentication and role-based access control.
 
-## Fitur Utama
+## Features
 
-1. **Autentikasi Pengguna:**
-   - Registrasi pengguna baru
-   - Login dan logout
-   - Mengelola sesi pengguna (pengelola dan admin)
+- User authentication (Login)
+- Role-based access control (Admin and Pengelola)
+- CRUD operations for posts and categories
+- SweetAlert integration for better user experience
+- Profile management for users
 
-2. **Manajemen Post:**
-   - Membuat, mengedit, dan menghapus postingan blog
-   - Postingan dapat memiliki status `publish` atau `draft`
-   - Hanya postingan dengan status `publish` yang ditampilkan di frontend
-   - Pengguna dapat melihat detail postingan beserta kategori, tanggal, penulis, dan jumlah hits (dilihat)
+## Frontend Screenshots
 
-3. **Manajemen Kategori:**
-   - Membuat, mengedit, dan menghapus kategori
-   - Hanya kategori aktif yang dapat dipilih saat membuat atau mengedit postingan
-   - Kategori yang tidak aktif tidak ditampilkan
+### Dashboard
+![Dashboard](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/Dashboard.png)
 
-4. **Navigasi dan Tampilan:**
-   - Navbar dengan navigasi ke halaman utama, halaman postingan, kategori, about, dan contact
-   - Sidebar untuk navigasi admin, termasuk dashboard, manajemen postingan, kategori, konfigurasi, dan pengguna
-   - Tampilan postingan dengan gambar, judul, konten, kategori, penulis, dan jumlah hits
+### Posts
+![Posts](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/post.png)
 
-## Tampilan Aplikasi
+### Read More Post
+![Read More Post](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/read%20more%20post.png)
 
-### Halaman Utama
-Halaman utama menampilkan daftar postingan terbaru yang berstatus `publish`. Pengguna dapat melakukan pencarian postingan berdasarkan keyword.
-![Add Data Page](https://github.com/septiisdayanna/CRUD-PHP-PDO/blob/main/Tampilan%20CRUD/Tampilan%20Add%20Data.png)
+### Post Categories
+![Post Categories](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/post%20categories.png)
 
-### Halaman Detail Post
-Setelah mengklik "Read More" pada salah satu postingan, pengguna akan diarahkan ke halaman detail post yang menampilkan gambar, judul, konten, kategori, penulis, tanggal, dan jumlah hits dari postingan tersebut.
+### All Categories
+![All Categories](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/all%20category.png)
 
-### Halaman Kategori
-Menampilkan daftar kategori beserta jumlah postingan dalam setiap kategori. Pengguna dapat memilih kategori untuk melihat postingan yang terkait dengan kategori tersebut.
+## Backend Screenshots
 
-### Halaman Admin
-Admin dapat mengakses halaman dashboard untuk mengelola postingan, kategori, konfigurasi aplikasi, dan pengguna.
+### Dashboard
+![Admin Dashboard](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/dashboard%20(2).png)
 
-## Instalasi dan Penggunaan
+### Post Management (Pengelola)
+![Post Management Pengelola](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/post%20pengelola.png)
 
-1. Clone repositori ini:
-   ```bash
+### Post Management (Admin)
+![Post Management Admin](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/post%20admin.png)
+
+### Create Post
+![Create Post](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/create%20post.png)
+
+### Category Management (Admin)
+![Category Management Admin](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/category%20admin.png)
+
+### SweetAlert Notifications
+![SweetAlert Notifications](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/sweetarlert%20post.png)
+
+### Configuration (Admin)
+![Configuration Admin](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/config%20admin.png)
+
+### Profile Management (Pengelola)
+![Profile Management Pengelola](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/profile%20pengelola.png)
+
+### User List (Admin)
+![User List Admin](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/list%20users%20admin.png)
+
+### Login
+![Login](https://github.com/septiisdayanna/UAS_PEMWEB/blob/main/TAMPILAN/login.png)
+
+## Installation
+
+1. Clone the repository:
+   ```sh
    git clone https://github.com/septiisdayanna/UAS_PEMWEB.git
-   ```
-2. Masuk ke direktori proyek:
-   ```bash
    cd UAS_PEMWEB
    ```
-3. Install dependencies menggunakan Composer:
-   ```bash
+
+2. Install dependencies:
+   ```sh
    composer install
+   npm install
    ```
-4. Salin file `.env.example` menjadi `.env` dan konfigurasikan database Anda.
-   ```bash
+
+3. Create a copy of the `.env` file:
+   ```sh
    cp .env.example .env
    ```
-5. Generate application key:
-   ```bash
+
+4. Generate an application key:
+   ```sh
    php artisan key:generate
    ```
-6. Migrasi dan seed database:
-   ```bash
-   php artisan migrate --seed
+
+5. Configure your `.env` file with your database credentials and other necessary settings.
+
+6. Run database migrations:
+   ```sh
+   php artisan migrate
    ```
-7. Jalankan aplikasi:
-   ```bash
+
+7. Seed the database (optional):
+   ```sh
+   php artisan db:seed
+   ```
+
+8. Serve the application:
+   ```sh
    php artisan serve
    ```
-8. Buka browser dan akses `http://localhost:8000` untuk melihat aplikasi.
+
+## Usage
+
+- Access the frontend at `http://localhost:8000`
+- Login as an admin or pengelola to access the backend features
+
 
 
 
