@@ -15,9 +15,9 @@ UAS_PEMWEB is a web application project designed as a final assignment for the W
 
 ## Features
 
-- User authentication (Login)
+- User authentication (Login & register)
 - Role-based access control (Admin and Pengelola)
-- CRUD operations for posts and categories
+- CRUD operations for posts and categories(only admin)
 - SweetAlert integration for better user experience
 - Profile management for users
 
