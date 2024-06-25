@@ -7,60 +7,85 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+Berikut adalah contoh file README untuk proyek Anda:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# UAS_PEMWEB
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Deskripsi Proyek
 
-## Learning Laravel
+Proyek ini adalah sebuah aplikasi web yang dikembangkan sebagai bagian dari tugas akhir untuk mata kuliah Pemrograman Web. Aplikasi ini menyediakan platform blogging yang memungkinkan pengguna untuk membuat, mengedit, menghapus, dan melihat postingan blog. Selain itu, pengguna juga dapat mengelola kategori untuk mengelompokkan postingan.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Fitur Utama
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Autentikasi Pengguna:**
+   - Registrasi pengguna baru
+   - Login dan logout
+   - Mengelola sesi pengguna (pengelola dan admin)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. **Manajemen Post:**
+   - Membuat, mengedit, dan menghapus postingan blog
+   - Postingan dapat memiliki status `publish` atau `draft`
+   - Hanya postingan dengan status `publish` yang ditampilkan di frontend
+   - Pengguna dapat melihat detail postingan beserta kategori, tanggal, penulis, dan jumlah hits (dilihat)
 
-## Laravel Sponsors
+3. **Manajemen Kategori:**
+   - Membuat, mengedit, dan menghapus kategori
+   - Hanya kategori aktif yang dapat dipilih saat membuat atau mengedit postingan
+   - Kategori yang tidak aktif tidak ditampilkan
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+4. **Navigasi dan Tampilan:**
+   - Navbar dengan navigasi ke halaman utama, halaman postingan, kategori, about, dan contact
+   - Sidebar untuk navigasi admin, termasuk dashboard, manajemen postingan, kategori, konfigurasi, dan pengguna
+   - Tampilan postingan dengan gambar, judul, konten, kategori, penulis, dan jumlah hits
 
-### Premium Partners
+## Tampilan Aplikasi
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Halaman Utama
+Halaman utama menampilkan daftar postingan terbaru yang berstatus `publish`. Pengguna dapat melakukan pencarian postingan berdasarkan keyword.
 
-## Contributing
+### Halaman Detail Post
+Setelah mengklik "Read More" pada salah satu postingan, pengguna akan diarahkan ke halaman detail post yang menampilkan gambar, judul, konten, kategori, penulis, tanggal, dan jumlah hits dari postingan tersebut.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Halaman Kategori
+Menampilkan daftar kategori beserta jumlah postingan dalam setiap kategori. Pengguna dapat memilih kategori untuk melihat postingan yang terkait dengan kategori tersebut.
 
-## Code of Conduct
+### Halaman Admin
+Admin dapat mengakses halaman dashboard untuk mengelola postingan, kategori, konfigurasi aplikasi, dan pengguna.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Instalasi dan Penggunaan
 
-## Security Vulnerabilities
+1. Clone repositori ini:
+   ```bash
+   git clone https://github.com/septiisdayanna/UAS_PEMWEB.git
+   ```
+2. Masuk ke direktori proyek:
+   ```bash
+   cd UAS_PEMWEB
+   ```
+3. Install dependencies menggunakan Composer:
+   ```bash
+   composer install
+   ```
+4. Salin file `.env.example` menjadi `.env` dan konfigurasikan database Anda.
+   ```bash
+   cp .env.example .env
+   ```
+5. Generate application key:
+   ```bash
+   php artisan key:generate
+   ```
+6. Migrasi dan seed database:
+   ```bash
+   php artisan migrate --seed
+   ```
+7. Jalankan aplikasi:
+   ```bash
+   php artisan serve
+   ```
+8. Buka browser dan akses `http://localhost:8000` untuk melihat aplikasi.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
