@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 
@@ -21,9 +20,8 @@ class UserController extends Controller
 
         return view('back.user.index', [
             'users' => $users,
-            'roles' => Role::all(), // Mengambil semua roles
+            'roles' => Role::all(),
         ]);
-        
     }
 
     public function store(UserRequest $request) 
@@ -39,32 +37,34 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id) 
     {
         $data = $request->validated();
-    
-        // Hanya update password jika password diisi
-        if ($data['password'] != '') {
+
+        if (!empty($data['password'])) {
             $data['password'] = bcrypt($data['password']);
         } else {
-            unset($data['password']); // Hapus password dari data jika tidak diubah
+            unset($data['password']);
         }
-    
-        // Hanya update role jika pengguna yang sedang login adalah admin
+
+        $user = User::find($id);
+
         if (auth()->user()->role_id == 1) {
-            User::find($id)->update([
+            $user->update([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'role_id' => $data['role_id'],
-                'password' => $data['password'] ?? null,
+                'password' => $data['password'] ?? $user->password,
             ]);
-        } else {
-            User::find($id)->update([
+        } elseif (auth()->user()->id == $id) {
+            $user->update([
                 'name' => $data['name'],
                 'email' => $data['email'],
-                'password' => $data['password'] ?? null,
+                'password' => $data['password'] ?? $user->password,
             ]);
+        } else {
+            return back()->withErrors('You do not have permission to edit this user');
         }
-    
+
         return back()->with('success', 'User has been updated');
-    }      
+    }
 
     public function destroy(string $id)
     {

@@ -21,12 +21,17 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name'=> 'required|min:3',
-            'email'=> 'required|email',
-            'password'=> 'nullable|min:8|confirmed',
-            'password_confirmation'=> 'nullable|min:8|required_with:password',
-            'role_id' => 'required|exists:roles,id',
+        $rules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $this->user,
+            'password' => 'nullable|string|min:8|confirmed',
+            'password_confirmation' => 'nullable|string|min:8|same:password',
         ];
+
+        if (auth()->user()->role_id == 1) {
+            $rules['role_id'] = 'required|exists:roles,id';
+        }
+
+        return $rules;
     }
 }
