@@ -39,20 +39,32 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id) 
     {
         $data = $request->validated();
-
-        if  ($data['password'] != '') {
+    
+        // Hanya update password jika password diisi
+        if ($data['password'] != '') {
             $data['password'] = bcrypt($data['password']);
-            User::find($id)->update($data);
-        } else{
+        } else {
+            unset($data['password']); // Hapus password dari data jika tidak diubah
+        }
+    
+        // Hanya update role jika pengguna yang sedang login adalah admin
+        if (auth()->user()->role_id == 1) {
             User::find($id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'role_id' => $request->role_id,
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'role_id' => $data['role_id'],
+                'password' => $data['password'] ?? null,
+            ]);
+        } else {
+            User::find($id)->update([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => $data['password'] ?? null,
             ]);
         }
-
+    
         return back()->with('success', 'User has been updated');
-    }
+    }      
 
     public function destroy(string $id)
     {

@@ -61,24 +61,23 @@
                          </div>
 
                          <div class="mb-3">
-                             <label for="role">Role</label>
-                             <select name="role_id" id="role"
-                                 class="form-control @error('role_id') is-invalid @enderror">
-                                 <option value="" selected disabled>-- Select Role --</option>
-                                 @foreach ($roles as $role)
-                                     <option value="{{ $role->id }}"
-                                         {{ old('role_id', $item->role_id) == $role->id ? 'selected' : '' }}>
-                                         {{ $role->name }}
-                                     </option>
-                                 @endforeach
-                             </select>
-                             @error('role_id')
-                                 <div class="invalid-feedback">
-                                     {{ $message }}
-                                 </div>
-                             @enderror
-                         </div>
-
+                            <label for="role">Role</label>
+                            <select name="role_id" id="role" class="form-control @error('role_id') is-invalid @enderror">
+                                <option value="" selected disabled>-- Select Role --</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}"
+                                        {{ old('role_id', $item->role_id) == $role->id ? 'selected' : '' }}
+                                        {{ auth()->user()->role_id != 1 ? 'disabled' : '' }}>
+                                        {{ $role->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('role_id')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>                        
 
                          <div class="modal-footer">
                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
